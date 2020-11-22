@@ -1751,4 +1751,8 @@ typedef NS_ENUM(NSInteger, TOCropViewOverlayEdge) {
     return (self.aspectRatio.width > FLT_EPSILON && self.aspectRatio.height > FLT_EPSILON);
 }
 
+- (void)updateMaskShape:(TOCropOption)opt{
+    [self.gridOverlayView updateCropShape:opt];
+}
+
 @end

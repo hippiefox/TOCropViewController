@@ -36,6 +36,8 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 @property (nonatomic, strong) NSArray *bottomRightLineViews;
 @property (nonatomic, strong) NSArray *topRightLineViews;
 
+@property (nonatomic, assign) TOCropOption shapeOption;
+@property (nonatomic, strong) UIView *maskView;
 @end
 
 @implementation TOCropOverlayView
@@ -45,6 +47,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     if (self = [super initWithFrame:frame]) {
         self.clipsToBounds = NO;
         [self setup];
+        self.shapeOption = TOCropOptNone;
     }
     
     return self;
@@ -52,6 +55,10 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 
 - (void)setup
 {
+    self.maskView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.maskView.backgroundColor = [UIColor blackColor];
+    [self addSubview:self.maskView];
+    
     UIView *(^newLineView)(void) = ^UIView *(void){
         return [self createNewLineView];
     };
@@ -63,6 +70,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     _topRightLineViews  = @[newLineView(), newLineView()];
     _bottomRightLineViews = @[newLineView(), newLineView()];
     
+    self.backgroundColor = [UIColor.systemPinkColor colorWithAlphaComponent:0.3];
     self.displayHorizontalGridLines = YES;
     self.displayVerticalGridLines = YES;
 }
@@ -70,8 +78,10 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 - (void)setFrame:(CGRect)frame
 {
     [super setFrame:frame];
+    self.maskView.frame = self.bounds;
     if (_outerLineViews) {
         [self layoutLines];
+        [self drawShape];
     }
 }
 
@@ -80,6 +90,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     [super didMoveToSuperview];
     if (_outerLineViews) {
         [self layoutLines];
+        [self drawShape];
     }
 }
 
@@ -227,5 +238,197 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     [self addSubview:newLine];
     return newLine;
 }
+
+- (void)updateCropShape:(TOCropOption)option{
+    self.shapeOption = option;
+    [self drawShape];
+}
+
+- (void)drawShape{
+    
+    CGSize boundsSize = self.bounds.size;
+    BOOL isHorzitalLonger = boundsSize.width > boundsSize.height;
+    CGFloat unitSize = MIN(boundsSize.width, boundsSize.height);
+    
+    CGFloat x = isHorzitalLonger ? (boundsSize.width - boundsSize.height) / 2 : 0;
+    CGFloat y = isHorzitalLonger ? 0 : (boundsSize.height - boundsSize.width) / 2;
+   
+    CGPoint offSetP = CGPointMake(x, y);
+    
+    UIBezierPath * path;
+    switch (self.shapeOption) {
+        case TOCropOptTriangle:
+            path = [self trianglePath:unitSize OffSet:offSetP];
+            break;
+        case TOCropOptPentagon:
+            path = [self pentagonPath:unitSize OffSet:offSetP];
+            break;
+        case TOCropOptInvertedTriangle:
+            path = [self invertedTrianglePath:unitSize OffSet:offSetP];
+            break;
+        case TOCropOptSquare:
+            path = [self squarePath:unitSize OffSet:offSetP];
+            break;
+        case TOCropOptHexagan:
+            path = [self hexagonPath:unitSize OffSet:offSetP];
+            break;
+        default:
+            break;
+    }
+    
+    if(self.shapeOption == TOCropOptNone){
+        [self.maskView setHidden:YES];
+    }else{
+        [self.maskView setHidden:NO];
+        CGRect selfBounds = self.bounds;
+        UIBezierPath * outerPath =  [UIBezierPath bezierPathWithRect:selfBounds];
+        [outerPath appendPath:path];
+        
+        CAShapeLayer * outerLayer = [[CAShapeLayer alloc]init];
+        outerLayer.path = outerPath.CGPath;
+        self.maskView.layer.mask = outerLayer;
+    }
+}
+
+- (CGPoint)offsetPoint:(CGPoint)p Offset:(CGPoint)offset{
+    CGPoint point = p;
+    point.x += offset.x;
+    point.y += offset.y;
+    return  point;
+}
+
+- (UIBezierPath *)trianglePath:(CGFloat)unitSize OffSet:(CGPoint)offset{
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    
+    CGPoint firstP = CGPointMake(unitSize/2, 0);
+    firstP = [self offsetPoint:firstP Offset:offset];
+    [path moveToPoint:firstP];
+    
+    CGPoint secondP = CGPointMake(0,unitSize);
+    secondP = [self offsetPoint:secondP Offset:offset];
+    [path addLineToPoint:secondP];
+    
+    CGPoint thirdP = CGPointMake(unitSize,unitSize);
+    thirdP = [self offsetPoint:thirdP Offset:offset];
+    [path addLineToPoint:thirdP];
+    
+    path.lineWidth = 3;
+    [path closePath];
+    return path;
+}
+
+- (UIBezierPath *)invertedTrianglePath:(CGFloat)unitSize OffSet:(CGPoint)offset{
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    
+    CGPoint firstP = CGPointMake(0, 0);
+    firstP = [self offsetPoint:firstP Offset:offset];
+    [path moveToPoint:firstP];
+    
+    CGPoint secondP = CGPointMake(unitSize/2, unitSize);
+    secondP = [self offsetPoint:secondP Offset:offset];
+    [path addLineToPoint:secondP];
+    
+    CGPoint thirdP = CGPointMake(unitSize, 0);
+    thirdP = [self offsetPoint:thirdP Offset:offset];
+    [path addLineToPoint:thirdP];
+   
+    path.lineWidth = 3;
+    [path closePath];
+    return path;
+}
+
+- (UIBezierPath *)squarePath:(CGFloat)unitSize OffSet:(CGPoint)offset{
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    
+    CGPoint firstP = CGPointMake(0, unitSize/2);
+    firstP = [self offsetPoint:firstP Offset:offset];
+    [path moveToPoint:firstP];
+    
+    CGPoint secondP = CGPointMake(unitSize/2, unitSize);
+    secondP = [self offsetPoint:secondP Offset:offset];
+    [path addLineToPoint:secondP];
+    
+    CGPoint thirdP = CGPointMake(unitSize, unitSize/2);
+    thirdP = [self offsetPoint:thirdP Offset:offset];
+    [path addLineToPoint:thirdP];
+    
+    CGPoint forthP = CGPointMake(unitSize/2, 0);
+    forthP = [self offsetPoint:forthP Offset:offset];
+    [path addLineToPoint:forthP];
+    
+    path.lineWidth = 3;
+    [path closePath];
+    return path;
+}
+
+- (UIBezierPath *)pentagonPath:(CGFloat)unitSize OffSet:(CGPoint)offset{
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    path.lineWidth = 3;
+
+    CGFloat halfSize = unitSize / 2;
+    
+    CGFloat firstY = tan(36.0/180.0*M_PI) * halfSize;
+    CGPoint firstP = CGPointMake(0, firstY);
+    firstP = [self offsetPoint:firstP Offset:offset];
+    [path moveToPoint:firstP];
+    
+    CGFloat vrtSegLength = unitSize - firstY;
+    CGFloat secondX = tan(18.0/180.0*M_PI) * vrtSegLength;
+    CGPoint secondP = CGPointMake(secondX, unitSize);
+    secondP = [self offsetPoint:secondP Offset:offset];
+    [path addLineToPoint:secondP];
+    
+    CGFloat thirdX = unitSize - secondX;
+    CGPoint thirdP = CGPointMake(thirdX, unitSize);
+    thirdP = [self offsetPoint:thirdP Offset:offset];
+    [path addLineToPoint:thirdP];
+    
+    CGPoint forthP = CGPointMake(unitSize, firstY);
+    forthP = [self offsetPoint:forthP Offset:offset];
+    [path addLineToPoint:forthP];
+    
+    CGPoint fifthP = CGPointMake(unitSize/2, 0);
+    fifthP = [self offsetPoint:fifthP Offset:offset];
+    [path addLineToPoint:fifthP];
+
+    [path closePath];
+    return path;
+}
+
+- (UIBezierPath *)hexagonPath:(CGFloat)unitSize OffSet:(CGPoint)offset{
+    UIBezierPath * path = [UIBezierPath bezierPath];
+    
+    CGFloat halfSize = unitSize / 2;
+    
+    CGPoint firstP = CGPointMake(0, halfSize);
+    firstP = [self offsetPoint:firstP Offset:offset];
+    [path moveToPoint:firstP];
+    
+    CGFloat secondX = halfSize / tan(60.0/180.0*M_PI);
+    CGPoint secondP = CGPointMake(secondX, unitSize);
+    secondP = [self offsetPoint:secondP Offset:offset];
+    [path addLineToPoint:secondP];
+    
+    CGPoint thirdP = CGPointMake(unitSize-secondX, unitSize);
+    thirdP = [self offsetPoint:thirdP Offset:offset];
+    [path addLineToPoint:thirdP];
+    
+    CGPoint forthP = CGPointMake(unitSize, unitSize/2);
+    forthP = [self offsetPoint:forthP Offset:offset];
+    [path addLineToPoint:forthP];
+    
+    CGPoint fifthP = CGPointMake(unitSize-secondX, 0);
+    fifthP = [self offsetPoint:fifthP Offset:offset];
+    [path addLineToPoint:fifthP];
+    
+    CGPoint sixthP = CGPointMake(secondX, 0);
+    sixthP = [self offsetPoint:sixthP Offset:offset];
+    [path addLineToPoint:sixthP];
+    [path closePath];
+    
+    return path;
+}
+
+
 
 @end

@@ -25,6 +25,7 @@
 #import "TOCropViewConstants.h"
 #import "TOCropView.h"
 #import "TOCropToolbar.h"
+#import "UIBezierPath+ShapeCrop.h"
 
 @class TOCropViewController;
 

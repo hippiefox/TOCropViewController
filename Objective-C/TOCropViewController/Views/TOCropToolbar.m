@@ -23,10 +23,15 @@
 #import "TOCropToolbar.h"
 
 #define TOCROPTOOLBAR_DEBUG_SHOWING_BUTTONS_CONTAINER_RECT 0   // convenience debug toggle
+static const CGFloat kOptionViewHeight = 76.0f;
+
+
 
 @interface TOCropToolbar()
 
 @property (nonatomic, strong) UIView *backgroundView;
+@property (nonatomic, strong) UIScrollView *optionView;
+
 
 @property (nonatomic, strong, readwrite) UIButton *doneTextButton;
 @property (nonatomic, strong, readwrite) UIButton *doneIconButton;
@@ -40,6 +45,8 @@
 @property (nonatomic, strong) UIButton *rotateButton; // defaults to counterclockwise button for legacy compatibility
 
 @property (nonatomic, assign) BOOL reverseContentLayout; // For languages like Arabic where they natively present content flipped from English
+
+@property (nonatomic, strong) NSMutableArray * buttons;
 
 @end
 
@@ -58,6 +65,24 @@
     self.backgroundView = [[UIView alloc] initWithFrame:self.bounds];
     self.backgroundView.backgroundColor = [UIColor colorWithWhite:0.12f alpha:1.0f];
     [self addSubview:self.backgroundView];
+    
+    self.optionView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 8, self.bounds.size.width, 60)];
+    [self addSubview:self.optionView];
+    self.optionView.showsHorizontalScrollIndicator = NO;
+    
+    self.buttons = [[NSMutableArray alloc]init];
+    for (int i = 1; i <= 6; i++) {
+        UIButton* button = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, 60, 60)];
+        [button addTarget:self action:@selector(actionOption:) forControlEvents:UIControlEventTouchUpInside];
+        UIImage * normalImage = [TOCropToolbar iconNormalWithOpt:i];
+        UIImage * selectedImage = [TOCropToolbar iconSelectedWithOpt:i];
+        [button setImage:normalImage forState:UIControlStateNormal];
+        [button setImage:selectedImage forState:UIControlStateSelected];
+        [self.buttons addObject:button];
+        [self.optionView addSubview:button];
+    }
+    self.optionView.contentSize = CGSizeMake((8+60) * self.buttons.count + 8, 60);
+    [self.buttons[0] setSelected:YES];
     
     // On iOS 9, we can use the new layout features to determine whether we're in an 'Arabic' style language mode
     if (@available(iOS 9.0, *)) {
@@ -137,6 +162,16 @@
     [self addSubview:_resetButton];
 }
 
+- (void)actionOption:(UIButton *)sender{
+    for (int i = 0; i < self.buttons.count; i++) {
+        UIButton * button = self.buttons[i];
+        [button setSelected:NO];
+    }
+    NSInteger indext = [self.buttons indexOfObject:sender];
+    self.optionButtonTapped(indext+1);
+    [sender setSelected:YES];
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -157,6 +192,16 @@
     frame.size.height += self.backgroundViewOutsets.top;
     frame.size.height += self.backgroundViewOutsets.bottom;
     self.backgroundView.frame = frame;
+    
+    self.optionView.frame = CGRectMake(0, 8, self.bounds.size.width, 60);
+    
+    for (int i = 0; i < self.buttons.count; i++) {
+        UIButton * button = self.buttons[i];
+        CGRect frame = button.frame;
+        frame.origin.x = 8 + (64 + 8) * i;
+        button.frame = frame;
+    }
+    
     
 #if TOCROPTOOLBAR_DEBUG_SHOWING_BUTTONS_CONTAINER_RECT
     static UIView *containerView = nil;
@@ -290,6 +335,15 @@
             CGPoint origin = horizontally ? CGPointMake(diffOffset, sameOffset) : CGPointMake(sameOffset, diffOffset);
             if (horizontally) {
                 origin.x += CGRectGetMinX(containerRect);
+                origin.y = kOptionViewHeight;
+                
+                CGRect cancelFrame = self.cancelTextButton.frame;
+                cancelFrame.origin.y = origin.y;
+                self.cancelTextButton.frame = cancelFrame;
+                
+                CGRect doneFrame = self.doneTextButton.frame;
+                doneFrame.origin.y = origin.y;
+                self.doneTextButton.frame = doneFrame;
             } else {
                 origin.y += CGRectGetMinY(containerRect);
             }
@@ -594,6 +648,21 @@
     
     return clampImage;
 }
+
++ (UIImage *)iconNormalWithOpt:(TOCropOption)opt{
+    NSString * name = [NSString stringWithFormat:@"%ld_normal",opt];
+    NSString * path =[[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+    return icon;
+}
+
++ (UIImage *)iconSelectedWithOpt:(TOCropOption)opt{
+    NSString * name = [NSString stringWithFormat:@"%ld_selected",opt];
+    NSString * path =[[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+    return icon;
+}
+
 
 #pragma mark - Accessors -
 

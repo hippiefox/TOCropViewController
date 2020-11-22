@@ -94,6 +94,60 @@
 		2F5062F31F53E31F00AA9F14 /* TOCropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22DB4D831B234CFA008B8466 /* TOCropViewController.m */; };
 		2F5062F41F53E32800AA9F14 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 223424751ABBC0CD00BBC2B1 /* ViewController.m */; };
 		2F5062F51F53E32D00AA9F14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 223424771ABBC0CD00BBC2B1 /* Main.storyboard */; };
+		4F51FE022569105200D2EE8A /* 2_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF62569105100D2EE8A /* 2_normal.png */; };
+		4F51FE032569105200D2EE8A /* 2_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF62569105100D2EE8A /* 2_normal.png */; };
+		4F51FE042569105200D2EE8A /* 2_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF62569105100D2EE8A /* 2_normal.png */; };
+		4F51FE052569105200D2EE8A /* 2_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF62569105100D2EE8A /* 2_normal.png */; };
+		4F51FE062569105200D2EE8A /* 1_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF72569105100D2EE8A /* 1_normal.png */; };
+		4F51FE072569105200D2EE8A /* 1_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF72569105100D2EE8A /* 1_normal.png */; };
+		4F51FE082569105200D2EE8A /* 1_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF72569105100D2EE8A /* 1_normal.png */; };
+		4F51FE092569105200D2EE8A /* 1_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF72569105100D2EE8A /* 1_normal.png */; };
+		4F51FE0A2569105200D2EE8A /* 4_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF82569105100D2EE8A /* 4_normal.png */; };
+		4F51FE0B2569105200D2EE8A /* 4_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF82569105100D2EE8A /* 4_normal.png */; };
+		4F51FE0C2569105200D2EE8A /* 4_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF82569105100D2EE8A /* 4_normal.png */; };
+		4F51FE0D2569105200D2EE8A /* 4_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF82569105100D2EE8A /* 4_normal.png */; };
+		4F51FE0E2569105200D2EE8A /* 3_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF92569105100D2EE8A /* 3_normal.png */; };
+		4F51FE0F2569105200D2EE8A /* 3_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF92569105100D2EE8A /* 3_normal.png */; };
+		4F51FE102569105200D2EE8A /* 3_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF92569105100D2EE8A /* 3_normal.png */; };
+		4F51FE112569105200D2EE8A /* 3_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDF92569105100D2EE8A /* 3_normal.png */; };
+		4F51FE122569105200D2EE8A /* 2_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFA2569105100D2EE8A /* 2_selected.png */; };
+		4F51FE132569105200D2EE8A /* 2_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFA2569105100D2EE8A /* 2_selected.png */; };
+		4F51FE142569105200D2EE8A /* 2_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFA2569105100D2EE8A /* 2_selected.png */; };
+		4F51FE152569105200D2EE8A /* 2_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFA2569105100D2EE8A /* 2_selected.png */; };
+		4F51FE162569105200D2EE8A /* 3_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFB2569105100D2EE8A /* 3_selected.png */; };
+		4F51FE172569105200D2EE8A /* 3_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFB2569105100D2EE8A /* 3_selected.png */; };
+		4F51FE182569105200D2EE8A /* 3_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFB2569105100D2EE8A /* 3_selected.png */; };
+		4F51FE192569105200D2EE8A /* 3_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFB2569105100D2EE8A /* 3_selected.png */; };
+		4F51FE1A2569105200D2EE8A /* 4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFC2569105100D2EE8A /* 4_selected.png */; };
+		4F51FE1B2569105200D2EE8A /* 4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFC2569105100D2EE8A /* 4_selected.png */; };
+		4F51FE1C2569105200D2EE8A /* 4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFC2569105100D2EE8A /* 4_selected.png */; };
+		4F51FE1D2569105200D2EE8A /* 4_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFC2569105100D2EE8A /* 4_selected.png */; };
+		4F51FE1E2569105200D2EE8A /* 5_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFD2569105100D2EE8A /* 5_normal.png */; };
+		4F51FE1F2569105200D2EE8A /* 5_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFD2569105100D2EE8A /* 5_normal.png */; };
+		4F51FE202569105200D2EE8A /* 5_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFD2569105100D2EE8A /* 5_normal.png */; };
+		4F51FE212569105200D2EE8A /* 5_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFD2569105100D2EE8A /* 5_normal.png */; };
+		4F51FE222569105200D2EE8A /* 5_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFE2569105100D2EE8A /* 5_selected.png */; };
+		4F51FE232569105200D2EE8A /* 5_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFE2569105100D2EE8A /* 5_selected.png */; };
+		4F51FE242569105200D2EE8A /* 5_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFE2569105100D2EE8A /* 5_selected.png */; };
+		4F51FE252569105200D2EE8A /* 5_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFE2569105100D2EE8A /* 5_selected.png */; };
+		4F51FE262569105200D2EE8A /* 6_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFF2569105100D2EE8A /* 6_normal.png */; };
+		4F51FE272569105200D2EE8A /* 6_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFF2569105100D2EE8A /* 6_normal.png */; };
+		4F51FE282569105200D2EE8A /* 6_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFF2569105100D2EE8A /* 6_normal.png */; };
+		4F51FE292569105200D2EE8A /* 6_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FDFF2569105100D2EE8A /* 6_normal.png */; };
+		4F51FE2A2569105200D2EE8A /* 6_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE002569105100D2EE8A /* 6_selected.png */; };
+		4F51FE2B2569105200D2EE8A /* 6_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE002569105100D2EE8A /* 6_selected.png */; };
+		4F51FE2C2569105200D2EE8A /* 6_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE002569105100D2EE8A /* 6_selected.png */; };
+		4F51FE2D2569105200D2EE8A /* 6_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE002569105100D2EE8A /* 6_selected.png */; };
+		4F51FE2E2569105200D2EE8A /* 1_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE012569105100D2EE8A /* 1_selected.png */; };
+		4F51FE2F2569105200D2EE8A /* 1_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE012569105100D2EE8A /* 1_selected.png */; };
+		4F51FE302569105200D2EE8A /* 1_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE012569105100D2EE8A /* 1_selected.png */; };
+		4F51FE312569105200D2EE8A /* 1_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F51FE012569105100D2EE8A /* 1_selected.png */; };
+		4F51FE3A256A688100D2EE8A /* UIBezierPath+ShapeCrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F51FE38256A688100D2EE8A /* UIBezierPath+ShapeCrop.h */; };
+		4F51FE3B256A688100D2EE8A /* UIBezierPath+ShapeCrop.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F51FE38256A688100D2EE8A /* UIBezierPath+ShapeCrop.h */; };
+		4F51FE3C256A688100D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */; };
+		4F51FE3D256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */; };
+		4F51FE3E256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */; };
+		4F51FE3F256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */; };
 		FE3E0E3A21098448004DAE93 /* TOCropViewConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 220C8E9F21062DD300A9B25D /* TOCropViewConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -200,6 +254,20 @@
 		22DB4D9D1B234D4F008B8466 /* TOActivityCroppedImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TOActivityCroppedImageProvider.m; sourceTree = "<group>"; };
 		2F5062DC1F53E2D900AA9F14 /* TOCropViewControllerExample-Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "TOCropViewControllerExample-Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AADDE231CA5C43400AE0129 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = vi; path = vi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
+		4F51FDF62569105100D2EE8A /* 2_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_normal.png; sourceTree = "<group>"; };
+		4F51FDF72569105100D2EE8A /* 1_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_normal.png; sourceTree = "<group>"; };
+		4F51FDF82569105100D2EE8A /* 4_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_normal.png; sourceTree = "<group>"; };
+		4F51FDF92569105100D2EE8A /* 3_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_normal.png; sourceTree = "<group>"; };
+		4F51FDFA2569105100D2EE8A /* 2_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2_selected.png; sourceTree = "<group>"; };
+		4F51FDFB2569105100D2EE8A /* 3_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3_selected.png; sourceTree = "<group>"; };
+		4F51FDFC2569105100D2EE8A /* 4_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4_selected.png; sourceTree = "<group>"; };
+		4F51FDFD2569105100D2EE8A /* 5_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_normal.png; sourceTree = "<group>"; };
+		4F51FDFE2569105100D2EE8A /* 5_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5_selected.png; sourceTree = "<group>"; };
+		4F51FDFF2569105100D2EE8A /* 6_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_normal.png; sourceTree = "<group>"; };
+		4F51FE002569105100D2EE8A /* 6_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6_selected.png; sourceTree = "<group>"; };
+		4F51FE012569105100D2EE8A /* 1_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_selected.png; sourceTree = "<group>"; };
+		4F51FE38256A688100D2EE8A /* UIBezierPath+ShapeCrop.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+ShapeCrop.h"; sourceTree = "<group>"; };
+		4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+ShapeCrop.m"; sourceTree = "<group>"; };
 		6AE313501C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		6AE313511C47DAA200894C5B /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		88BBE90E22C206340073D22A /* fi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fi; path = fi.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -294,6 +362,7 @@
 		220C8EA021062E6D00A9B25D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4F51FD5325690BA200D2EE8A /* Images */,
 				22C3C5491AC8CA0D00E86280 /* TOCropViewControllerLocalizable.strings */,
 			);
 			path = Resources;
@@ -320,6 +389,8 @@
 			children = (
 				220C8EAB2106344D00A9B25D /* UIImage+CropRotate.h */,
 				220C8EAA2106344D00A9B25D /* UIImage+CropRotate.m */,
+				4F51FE38256A688100D2EE8A /* UIBezierPath+ShapeCrop.h */,
+				4F51FE39256A688100D2EE8A /* UIBezierPath+ShapeCrop.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -462,6 +533,25 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		4F51FD5325690BA200D2EE8A /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4F51FDF72569105100D2EE8A /* 1_normal.png */,
+				4F51FE012569105100D2EE8A /* 1_selected.png */,
+				4F51FDF62569105100D2EE8A /* 2_normal.png */,
+				4F51FDFA2569105100D2EE8A /* 2_selected.png */,
+				4F51FDF92569105100D2EE8A /* 3_normal.png */,
+				4F51FDFB2569105100D2EE8A /* 3_selected.png */,
+				4F51FDF82569105100D2EE8A /* 4_normal.png */,
+				4F51FDFC2569105100D2EE8A /* 4_selected.png */,
+				4F51FDFD2569105100D2EE8A /* 5_normal.png */,
+				4F51FDFE2569105100D2EE8A /* 5_selected.png */,
+				4F51FDFF2569105100D2EE8A /* 6_normal.png */,
+				4F51FE002569105100D2EE8A /* 6_selected.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -476,6 +566,7 @@
 				144B8CD11D22CD650085D774 /* TOCropViewControllerTransitioning.h in Headers */,
 				144B8CD21D22CD650085D774 /* TOActivityCroppedImageProvider.h in Headers */,
 				FE3E0E3A21098448004DAE93 /* TOCropViewConstants.h in Headers */,
+				4F51FE3B256A688100D2EE8A /* UIBezierPath+ShapeCrop.h in Headers */,
 				144B8CD31D22CD650085D774 /* TOCroppedImageAttributes.h in Headers */,
 				144B8CD61D22CD650085D774 /* TOCropScrollView.h in Headers */,
 				144B8CD51D22CD650085D774 /* TOCropOverlayView.h in Headers */,
@@ -496,6 +587,7 @@
 				04262D9D20F6FC4600024177 /* TOActivityCroppedImageProvider.h in Headers */,
 				04262D9E20F6FC4600024177 /* TOCroppedImageAttributes.h in Headers */,
 				04262DA020F6FC4600024177 /* TOCropOverlayView.h in Headers */,
+				4F51FE3A256A688100D2EE8A /* UIBezierPath+ShapeCrop.h in Headers */,
 				04262DA120F6FC4600024177 /* TOCropScrollView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -699,7 +791,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F51FE272569105200D2EE8A /* 6_normal.png in Resources */,
+				4F51FE232569105200D2EE8A /* 5_selected.png in Resources */,
+				4F51FE0F2569105200D2EE8A /* 3_normal.png in Resources */,
 				04262D8620F6F1C600024177 /* TOCropViewControllerLocalizable.strings in Resources */,
+				4F51FE032569105200D2EE8A /* 2_normal.png in Resources */,
+				4F51FE072569105200D2EE8A /* 1_normal.png in Resources */,
+				4F51FE172569105200D2EE8A /* 3_selected.png in Resources */,
+				4F51FE2B2569105200D2EE8A /* 6_selected.png in Resources */,
+				4F51FE1B2569105200D2EE8A /* 4_selected.png in Resources */,
+				4F51FE1F2569105200D2EE8A /* 5_normal.png in Resources */,
+				4F51FE2F2569105200D2EE8A /* 1_selected.png in Resources */,
+				4F51FE0B2569105200D2EE8A /* 4_normal.png in Resources */,
+				4F51FE132569105200D2EE8A /* 2_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,10 +818,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F51FE202569105200D2EE8A /* 5_normal.png in Resources */,
 				223424791ABBC0CD00BBC2B1 /* Main.storyboard in Resources */,
+				4F51FE042569105200D2EE8A /* 2_normal.png in Resources */,
+				4F51FE242569105200D2EE8A /* 5_selected.png in Resources */,
+				4F51FE102569105200D2EE8A /* 3_normal.png in Resources */,
+				4F51FE1C2569105200D2EE8A /* 4_selected.png in Resources */,
+				4F51FE082569105200D2EE8A /* 1_normal.png in Resources */,
 				2234247E1ABBC0CD00BBC2B1 /* LaunchScreen.xib in Resources */,
+				4F51FE142569105200D2EE8A /* 2_selected.png in Resources */,
+				4F51FE182569105200D2EE8A /* 3_selected.png in Resources */,
+				4F51FE302569105200D2EE8A /* 1_selected.png in Resources */,
+				4F51FE2C2569105200D2EE8A /* 6_selected.png in Resources */,
 				2234247B1ABBC0CD00BBC2B1 /* Images.xcassets in Resources */,
 				22C3C5471AC8CA0D00E86280 /* TOCropViewControllerLocalizable.strings in Resources */,
+				4F51FE0C2569105200D2EE8A /* 4_normal.png in Resources */,
+				4F51FE282569105200D2EE8A /* 6_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,10 +841,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F51FE212569105200D2EE8A /* 5_normal.png in Resources */,
 				2238CF2D1FC0269C0081B957 /* LaunchScreen.storyboard in Resources */,
+				4F51FE052569105200D2EE8A /* 2_normal.png in Resources */,
+				4F51FE252569105200D2EE8A /* 5_selected.png in Resources */,
+				4F51FE112569105200D2EE8A /* 3_normal.png in Resources */,
+				4F51FE1D2569105200D2EE8A /* 4_selected.png in Resources */,
+				4F51FE092569105200D2EE8A /* 1_normal.png in Resources */,
 				2238CF2A1FC0269C0081B957 /* Assets.xcassets in Resources */,
+				4F51FE152569105200D2EE8A /* 2_selected.png in Resources */,
+				4F51FE192569105200D2EE8A /* 3_selected.png in Resources */,
+				4F51FE312569105200D2EE8A /* 1_selected.png in Resources */,
+				4F51FE2D2569105200D2EE8A /* 6_selected.png in Resources */,
 				2238CF281FC0269C0081B957 /* Main.storyboard in Resources */,
 				220C8EA121062EFC00A9B25D /* TOCropViewControllerLocalizable.strings in Resources */,
+				4F51FE0D2569105200D2EE8A /* 4_normal.png in Resources */,
+				4F51FE292569105200D2EE8A /* 6_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,7 +864,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F51FE262569105200D2EE8A /* 6_normal.png in Resources */,
+				4F51FE222569105200D2EE8A /* 5_selected.png in Resources */,
+				4F51FE0E2569105200D2EE8A /* 3_normal.png in Resources */,
 				04262D8720F6F1D600024177 /* TOCropViewControllerLocalizable.strings in Resources */,
+				4F51FE022569105200D2EE8A /* 2_normal.png in Resources */,
+				4F51FE062569105200D2EE8A /* 1_normal.png in Resources */,
+				4F51FE162569105200D2EE8A /* 3_selected.png in Resources */,
+				4F51FE2A2569105200D2EE8A /* 6_selected.png in Resources */,
+				4F51FE1A2569105200D2EE8A /* 4_selected.png in Resources */,
+				4F51FE1E2569105200D2EE8A /* 5_normal.png in Resources */,
+				4F51FE2E2569105200D2EE8A /* 1_selected.png in Resources */,
+				4F51FE0A2569105200D2EE8A /* 4_normal.png in Resources */,
+				4F51FE122569105200D2EE8A /* 2_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,6 +898,7 @@
 				220C8EAD2106344D00A9B25D /* UIImage+CropRotate.m in Sources */,
 				144B8CDA1D22CD730085D774 /* TOCropViewControllerTransitioning.m in Sources */,
 				144B8CDB1D22CD730085D774 /* TOActivityCroppedImageProvider.m in Sources */,
+				4F51FE3D256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */,
 				144B8CDC1D22CD730085D774 /* TOCroppedImageAttributes.m in Sources */,
 				144B8CDE1D22CD730085D774 /* TOCropOverlayView.m in Sources */,
 				144B8CDF1D22CD730085D774 /* TOCropScrollView.m in Sources */,
@@ -788,6 +929,7 @@
 				220C8EAE2106344D00A9B25D /* UIImage+CropRotate.m in Sources */,
 				22DB4D981B234D07008B8466 /* TOCropOverlayView.m in Sources */,
 				22DB4D9E1B234D4F008B8466 /* TOActivityCroppedImageProvider.m in Sources */,
+				4F51FE3E256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */,
 				22DB4D961B234D07008B8466 /* TOCropViewControllerTransitioning.m in Sources */,
 				22DB4D991B234D07008B8466 /* TOCropScrollView.m in Sources */,
 				223DCEB61FBAA85D00F99209 /* TOCropViewController.m in Sources */,
@@ -807,6 +949,7 @@
 				220C8EAF2106344D00A9B25D /* UIImage+CropRotate.m in Sources */,
 				22B68F9C1FFB380700601B1A /* TOCropView.m in Sources */,
 				22B68F9D1FFB380700601B1A /* TOCropViewController.m in Sources */,
+				4F51FE3F256A688200D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */,
 				2238CF251FC0269C0081B957 /* ViewController.swift in Sources */,
 				2238CF231FC0269C0081B957 /* AppDelegate.swift in Sources */,
 				2238CF361FC029880081B957 /* CropViewController.swift in Sources */,
@@ -821,6 +964,7 @@
 				22B68F9F1FFB3C0800601B1A /* TOCropViewControllerTransitioning.m in Sources */,
 				22B68FA01FFB3C0800601B1A /* TOActivityCroppedImageProvider.m in Sources */,
 				22B68FA11FFB3C0800601B1A /* TOCroppedImageAttributes.m in Sources */,
+				4F51FE3C256A688100D2EE8A /* UIBezierPath+ShapeCrop.m in Sources */,
 				22B68FA31FFB3C0800601B1A /* TOCropOverlayView.m in Sources */,
 				22B68FA41FFB3C0800601B1A /* TOCropScrollView.m in Sources */,
 				22B68FA51FFB3C0800601B1A /* TOCropToolbar.m in Sources */,

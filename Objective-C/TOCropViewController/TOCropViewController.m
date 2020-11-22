@@ -26,9 +26,10 @@
 #import "TOActivityCroppedImageProvider.h"
 #import "UIImage+CropRotate.h"
 #import "TOCroppedImageAttributes.h"
+#import "TOCropToolbar.h"
 
 static const CGFloat kTOCropViewControllerTitleTopPadding = 14.0f;
-static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
+static const CGFloat kTOCropViewControllerToolbarHeight = 120.0f;
 
 @interface TOCropViewController () <UIActionSheetDelegate, UIViewControllerTransitioningDelegate, TOCropViewDelegate>
 
@@ -67,6 +68,10 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 /* Flag to perform initial setup on the first run */
 @property (nonatomic, assign) BOOL firstTime;
 
+//裁剪选项
+@property (nonatomic, assign) TOCropOption cropOpt;
+
+
 @end
 
 @implementation TOCropViewController
@@ -80,6 +85,7 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
         // Init parameters
         _image = image;
         _croppingStyle = style;
+        _cropOpt = TOCropOptNone;
         
         // Set up base view controller behaviour
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -129,6 +135,10 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
     self.toolbar.clampButtonTapped = ^{ [weakSelf showAspectRatioDialog]; };
     self.toolbar.rotateCounterclockwiseButtonTapped = ^{ [weakSelf rotateCropViewCounterclockwise]; };
     self.toolbar.rotateClockwiseButtonTapped        = ^{ [weakSelf rotateCropViewClockwise]; };
+    self.toolbar.optionButtonTapped = ^(TOCropOption opt) {
+        weakSelf.cropOpt = opt;
+        [weakSelf.cropView updateMaskShape:opt];
+    };
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -993,9 +1003,12 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
         UIImage *image = nil;
         if (angle == 0 && CGRectEqualToRect(cropFrame, (CGRect){CGPointZero, self.image.size})) {
             image = self.image;
+            image = [self cropImage:image];
         }
         else {
             image = [self.image croppedImageWithFrame:cropFrame angle:angle circularClip:NO];
+            image = [self cropImage:image];
+
         }
         
         //Dispatch on the next run-loop so the animation isn't interuppted by the crop operation
@@ -1020,6 +1033,37 @@ static const CGFloat kTOCropViewControllerToolbarHeight = 44.0f;
 - (void)commitCurrentCrop
 {
     [self doneButtonTapped];
+}
+
+- (UIImage *)cropImage:(UIImage *)soureImage{
+    if(self.cropOpt == TOCropOptNone){
+        return soureImage;
+    }
+    
+    CGRect rect = CGRectZero;
+    rect.size = soureImage.size;
+    UIGraphicsBeginImageContextWithOptions(rect.size, YES, 0.0);
+    [[UIColor blackColor] setFill];
+    UIRectFill(rect);
+    [[UIColor whiteColor] setFill];
+    
+    UIBezierPath *aPath = [UIBezierPath pathWith:rect Option:self.cropOpt];
+    [aPath fill];
+    UIImage *mask = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+        
+    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0.0);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    CGContextTranslateCTM(context, 0, rect.size.height);
+    CGContextScaleCTM(context,1.0,-1.0);
+    CGContextClipToMask(context, rect, mask.CGImage);
+    [soureImage drawAtPoint:CGPointZero];
+    
+    UIImage *maskedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    return maskedImage;
 }
 
 #pragma mark - Property Methods -

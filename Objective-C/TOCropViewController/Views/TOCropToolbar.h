@@ -22,6 +22,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TOCropViewConstants.h"
+#import "UIBezierPath+ShapeCrop.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -62,6 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) void (^rotateClockwiseButtonTapped)(void);
 @property (nullable, nonatomic, copy) void (^clampButtonTapped)(void);
 @property (nullable, nonatomic, copy) void (^resetButtonTapped)(void);
+@property (nullable, nonatomic, copy) void (^optionButtonTapped)(TOCropOption);
 
 /* State management for the 'clamp' button */
 @property (nonatomic, assign) BOOL clampButtonGlowing;

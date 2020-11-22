@@ -22,6 +22,9 @@
 
 #import <UIKit/UIKit.h>
 #import "TOCropViewConstants.h"
+#import "TOCropToolbar.h"
+#import "UIBezierPath+ShapeCrop.h"
+
 
 @class TOCropOverlayView;
 @class TOCropView;
@@ -285,6 +288,9 @@ The minimum croping aspect ratio. If set, user is prevented from setting croppin
  fills the entire crop view region
  */
 - (void)moveCroppedContentToCenterAnimated:(BOOL)animated;
+
+
+- (void)updateMaskShape:(TOCropOption)opt;
 
 @end
 
