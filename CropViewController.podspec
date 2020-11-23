@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.platform = :ios, '8.0'
   s.source_files = 'Swift/CropViewController/**/*.{h,swift}', 'Objective-C/TOCropViewController/**/*.{h,m}'
   s.resource_bundles = {
-    'TOCropViewControllerBundle' => ['Objective-C/TOCropViewController/**/*.lproj','Objective-C/TOCropViewController/**/*.bundle']
+    'TOCropViewControllerBundle' => ['Objective-C/TOCropViewController/**/*.lproj']
   }
   s.requires_arc = true
   s.swift_version = '5.0'
