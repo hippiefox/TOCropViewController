@@ -70,7 +70,7 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
     _topRightLineViews  = @[newLineView(), newLineView()];
     _bottomRightLineViews = @[newLineView(), newLineView()];
     
-    self.backgroundColor = [UIColor.systemPinkColor colorWithAlphaComponent:0.3];
+//    self.backgroundColor = [UIColor.systemPinkColor colorWithAlphaComponent:0.3];
     self.displayHorizontalGridLines = YES;
     self.displayVerticalGridLines = YES;
 }
