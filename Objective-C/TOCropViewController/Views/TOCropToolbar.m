@@ -651,14 +651,18 @@ static const CGFloat kOptionViewHeight = 76.0f;
 
 + (UIImage *)iconNormalWithOpt:(TOCropOption)opt{
     NSString * name = [NSString stringWithFormat:@"%ld_normal",opt];
-    NSString * path =[[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString * path =[bundle pathForResource:name ofType:@"png"];
     UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
     return icon;
 }
 
 + (UIImage *)iconSelectedWithOpt:(TOCropOption)opt{
     NSString * name = [NSString stringWithFormat:@"%ld_selected",opt];
-    NSString * path =[[NSBundle mainBundle] pathForResource:name ofType:@"png"];
+    NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+    NSString * path =[bundle pathForResource:name ofType:@"png"];
     UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
     return icon;
 }
