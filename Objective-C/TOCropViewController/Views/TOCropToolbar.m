@@ -651,20 +651,43 @@ static const CGFloat kOptionViewHeight = 76.0f;
 
 + (UIImage *)iconNormalWithOpt:(TOCropOption)opt{
     NSString * name = [NSString stringWithFormat:@"%ld_normal",opt];
-    NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+    NSString * bundlePath = [NSString stringWithFormat:@"%@/TOCropViewControllerBundle.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+    
     NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
-    NSString * path =[bundle pathForResource:name ofType:@"png"];
-    UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
-    return icon;
+    if (bundle != nil) {
+        NSBundle * imageBundle = [NSBundle bundleWithPath:[bundle pathForResource:@"CropViewController" ofType:@"bundle"]];
+        
+        NSString * path =[imageBundle pathForResource:name ofType:@"png"];
+        UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+        return icon;
+    }else{
+        NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+        NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+        NSString * path =[bundle pathForResource:name ofType:@"png"];
+        UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+        return icon;
+    }
 }
 
 + (UIImage *)iconSelectedWithOpt:(TOCropOption)opt{
     NSString * name = [NSString stringWithFormat:@"%ld_selected",opt];
-    NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+    
+    NSString * bundlePath = [NSString stringWithFormat:@"%@/TOCropViewControllerBundle.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
     NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
-    NSString * path =[bundle pathForResource:name ofType:@"png"];
-    UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
-    return icon;
+    
+    if (bundle != nil) {
+        NSBundle * imageBundle = [NSBundle bundleWithPath:[bundle pathForResource:@"CropViewController" ofType:@"bundle"]];
+        
+        NSString * path =[imageBundle pathForResource:name ofType:@"png"];
+        UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+        return icon;
+    }else{
+        NSString * bundlePath = [NSString stringWithFormat:@"%@/CropViewController.bundle",[[NSBundle bundleForClass:TOCropToolbar.self] resourcePath]];
+        NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+        NSString * path =[bundle pathForResource:name ofType:@"png"];
+        UIImage * icon = [[UIImage alloc]initWithContentsOfFile:path];
+        return icon;
+    }
 }
 
 
