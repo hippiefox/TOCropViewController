@@ -54,15 +54,18 @@
 + (UIBezierPath *)trianglePath:(CGFloat)unitSize OffSet:(CGPoint)offset{
     UIBezierPath * path = [UIBezierPath bezierPath];
     
-    CGPoint firstP = CGPointMake(unitSize/2, 0);
+    CGFloat h = tan(M_PI / 3) * unitSize / 2;
+    CGFloat y = (unitSize - h) / 2;
+    
+    CGPoint firstP = CGPointMake(unitSize/2, y);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
     
-    CGPoint secondP = CGPointMake(0,unitSize);
+    CGPoint secondP = CGPointMake(0,unitSize-y);
     secondP = [self offsetPoint:secondP Offset:offset];
     [path addLineToPoint:secondP];
     
-    CGPoint thirdP = CGPointMake(unitSize,unitSize);
+    CGPoint thirdP = CGPointMake(unitSize,unitSize-y);
     thirdP = [self offsetPoint:thirdP Offset:offset];
     [path addLineToPoint:thirdP];
     
@@ -74,15 +77,19 @@
 + (UIBezierPath *)invertedTrianglePath:(CGFloat)unitSize OffSet:(CGPoint)offset{
     UIBezierPath * path = [UIBezierPath bezierPath];
     
-    CGPoint firstP = CGPointMake(0, 0);
+    CGFloat h = tan(M_PI / 3) * unitSize / 2;
+    CGFloat y = (unitSize - h) / 2;
+
+    
+    CGPoint firstP = CGPointMake(0, y);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
     
-    CGPoint secondP = CGPointMake(unitSize/2, unitSize);
+    CGPoint secondP = CGPointMake(unitSize/2, unitSize-y);
     secondP = [self offsetPoint:secondP Offset:offset];
     [path addLineToPoint:secondP];
     
-    CGPoint thirdP = CGPointMake(unitSize, 0);
+    CGPoint thirdP = CGPointMake(unitSize, y);
     thirdP = [self offsetPoint:thirdP Offset:offset];
     [path addLineToPoint:thirdP];
    
@@ -120,20 +127,25 @@
     path.lineWidth = 3;
 
     CGFloat halfSize = unitSize / 2;
+    CGFloat side = halfSize / cos(18/M_PI);
+    CGFloat sh = sin(72.0/180.0 * M_PI) * side;
+    CGFloat h = sh + side;
+    CGFloat y = (unitSize - h) / 2;
     
-    CGFloat firstY = tan(36.0/180.0*M_PI) * halfSize;
+    
+    CGFloat firstY = tan(36.0/180.0*M_PI) * halfSize + y;
     CGPoint firstP = CGPointMake(0, firstY);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
     
     CGFloat vrtSegLength = unitSize - firstY;
     CGFloat secondX = tan(18.0/180.0*M_PI) * vrtSegLength;
-    CGPoint secondP = CGPointMake(secondX, unitSize);
+    CGPoint secondP = CGPointMake(secondX, y+h);
     secondP = [self offsetPoint:secondP Offset:offset];
     [path addLineToPoint:secondP];
     
     CGFloat thirdX = unitSize - secondX;
-    CGPoint thirdP = CGPointMake(thirdX, unitSize);
+    CGPoint thirdP = CGPointMake(thirdX, y+h);
     thirdP = [self offsetPoint:thirdP Offset:offset];
     [path addLineToPoint:thirdP];
     
@@ -141,7 +153,7 @@
     forthP = [self offsetPoint:forthP Offset:offset];
     [path addLineToPoint:forthP];
     
-    CGPoint fifthP = CGPointMake(unitSize/2, 0);
+    CGPoint fifthP = CGPointMake(unitSize/2, y);
     fifthP = [self offsetPoint:fifthP Offset:offset];
     [path addLineToPoint:fifthP];
 
@@ -153,17 +165,19 @@
     UIBezierPath * path = [UIBezierPath bezierPath];
     
     CGFloat halfSize = unitSize / 2;
+    CGFloat h = sqrt(3) * halfSize;
+    CGFloat y = (unitSize - h) / 2;
     
     CGPoint firstP = CGPointMake(0, halfSize);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
     
     CGFloat secondX = halfSize / tan(60.0/180.0*M_PI);
-    CGPoint secondP = CGPointMake(secondX, unitSize);
+    CGPoint secondP = CGPointMake(secondX, unitSize - y);
     secondP = [self offsetPoint:secondP Offset:offset];
     [path addLineToPoint:secondP];
     
-    CGPoint thirdP = CGPointMake(unitSize-secondX, unitSize);
+    CGPoint thirdP = CGPointMake(unitSize-secondX, unitSize - y);
     thirdP = [self offsetPoint:thirdP Offset:offset];
     [path addLineToPoint:thirdP];
     
@@ -171,11 +185,11 @@
     forthP = [self offsetPoint:forthP Offset:offset];
     [path addLineToPoint:forthP];
     
-    CGPoint fifthP = CGPointMake(unitSize-secondX, 0);
+    CGPoint fifthP = CGPointMake(unitSize-secondX, y);
     fifthP = [self offsetPoint:fifthP Offset:offset];
     [path addLineToPoint:fifthP];
     
-    CGPoint sixthP = CGPointMake(secondX, 0);
+    CGPoint sixthP = CGPointMake(secondX, y);
     sixthP = [self offsetPoint:sixthP Offset:offset];
     [path addLineToPoint:sixthP];
     [path closePath];
