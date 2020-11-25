@@ -127,13 +127,14 @@
     path.lineWidth = 3;
 
     CGFloat halfSize = unitSize / 2;
-    CGFloat side = halfSize / cos(18/M_PI);
-    CGFloat sh = sin(72.0/180.0 * M_PI) * side;
-    CGFloat h = sh + side;
+    CGFloat side = halfSize / cos(36.0/180*M_PI);
+    CGFloat sh = cos(18.0/180.0 * M_PI) * side;
+    CGFloat lh = tan(36.0/180*M_PI)*halfSize;
+    CGFloat h = sh + lh;
     CGFloat y = (unitSize - h) / 2;
     
     
-    CGFloat firstY = tan(36.0/180.0*M_PI) * halfSize + y;
+    CGFloat firstY = lh + y;
     CGPoint firstP = CGPointMake(0, firstY);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
@@ -165,14 +166,14 @@
     UIBezierPath * path = [UIBezierPath bezierPath];
     
     CGFloat halfSize = unitSize / 2;
-    CGFloat h = sqrt(3) * halfSize;
+    CGFloat h = sin(M_PI / 3) * halfSize * 2;
     CGFloat y = (unitSize - h) / 2;
     
     CGPoint firstP = CGPointMake(0, halfSize);
     firstP = [self offsetPoint:firstP Offset:offset];
     [path moveToPoint:firstP];
     
-    CGFloat secondX = halfSize / tan(60.0/180.0*M_PI);
+    CGFloat secondX = h/2 / tan(60.0/180.0*M_PI);
     CGPoint secondP = CGPointMake(secondX, unitSize - y);
     secondP = [self offsetPoint:secondP Offset:offset];
     [path addLineToPoint:secondP];
