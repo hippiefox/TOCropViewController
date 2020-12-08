@@ -114,7 +114,11 @@ static const CGFloat kOptionViewHeight = 76.0f;
     [_doneIconButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_doneIconButton];
     
+    
+    
+    UIColor* textColor = [UIColor colorWithRed:0/255.0 green:155/255.0 blue:132/255.0 alpha:1.0];
     _cancelTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    [_cancelTextButton setTitleColor:textColor forState:UIControlStateNormal];
     
     [_cancelTextButton setTitle: _cancelTextButtonTitle ?
         _cancelTextButtonTitle : NSLocalizedStringFromTableInBundle(@"Cancel",
